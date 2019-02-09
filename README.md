@@ -5,5 +5,5 @@ Uses MlpClassifier for neural network
 
 trained on 200 25*25 pixel images of trees
 
-(1.png)
+![1](1.png)
 
