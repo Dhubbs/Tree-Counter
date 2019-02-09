@@ -2,11 +2,6 @@ from PIL import Image
 from sklearn.neural_network import MLPClassifier
 import glob
 
-
-
-
-
-
 good_directory = "/home/hubbledylan/good/*.png"
 bad_directory = "/home/hubbledylan/bad/*.png"
 
@@ -18,10 +13,6 @@ bad_count = 150
 scale = 1
 
 
-
-
-
-
 def process(location):
     base = Image.open(i).convert("RGB")
     pixel = base.load()
@@ -31,7 +22,6 @@ def process(location):
             vals = pixel[x,y]
             temp += (vals[0]/256.0,vals[1]/256.0,vals[2]/256.0)
     return [temp]
-
 
 
 total = []
@@ -49,14 +39,10 @@ for i in locations:
 Y = [1 for i in range(good_count)] + [0 for i in range(bad_count)
 
 
-
 #sets up and fits neural net
 clf = MLPClassifier(solver = 'lbfgs' , alpha = 1e-5, hidden_layer_sizes = (250,100,40), random_state = 1)
-
 print "fitting..."
-
 clf.fit(total ,Y)
-
 print "Complete"
 
 
